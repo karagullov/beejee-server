@@ -17,7 +17,7 @@ export async function login(req: Request, res: Response) {
       httpOnly: true,
       secure: __prod__,
       sameSite: "lax",
-      domain: cookieDomain,
+      domain: req.headers.host,
       maxAge: 1000 * 60 * 60 * 24 * 30,
     });
     sendResponse(res, data.user);
