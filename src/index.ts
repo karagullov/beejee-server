@@ -9,7 +9,7 @@ const app = express();
 app.use(
   cors({
     origin: __prod__
-      ? "https://beejee-client.vercel.app"
+      ? "https://beejee-client-27f1tva1u-erlannn777.vercel.app"
       : "http://localhost:3000",
     credentials: true,
   })
