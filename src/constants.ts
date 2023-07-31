@@ -1,3 +1,3 @@
 export const __prod__ = process.env.NODE_ENV === "production";
 export const PORT = process.env.PORT || 5000;
-export const cookieDomain = undefined;
+export const cookieDomain = __prod__ ? "onrender.com" : undefined;
