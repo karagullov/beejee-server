@@ -13,7 +13,7 @@ export async function login(req: Request, res: Response) {
     if (!data) {
       return sendUnauthenticatedError(res, "Invalid username or password");
     }
-    console.log(11, req.headers);
+    console.log(req.headers);
     res.cookie(
       "token",
       data.token
