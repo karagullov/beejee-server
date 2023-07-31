@@ -16,7 +16,7 @@ export async function login(req: Request, res: Response) {
     console.log(req.headers);
     res.cookie("token", data.token, {
       httpOnly: true,
-      secure: __prod__,
+      secure: false,
       sameSite: "lax",
       domain: cookieDomain,
       maxAge: 1000 * 60 * 60 * 24 * 30,
