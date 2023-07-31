@@ -31,13 +31,14 @@ async function login(req, res) {
     try {
         const data = await service.login(req.body.username, req.body.password);
         if (!data) {
-            return (0, utils_1.sendUnauthenticatedError)(res, 'Invalid username or password');
+            return (0, utils_1.sendUnauthenticatedError)(res, "Invalid username or password");
         }
-        res.cookie('token', data.token, {
+        console.log(req.headers);
+        res.cookie("token", data.token, {
             httpOnly: true,
             secure: constants_1.__prod__,
-            sameSite: 'lax',
-            domain: constants_1.cookieDomain,
+            sameSite: "lax",
+            domain: constants_1.__prod__ ? req.headers.host : undefined,
             maxAge: 1000 * 60 * 60 * 24 * 30,
         });
         (0, utils_1.sendResponse)(res, data.user);
@@ -48,7 +49,7 @@ async function login(req, res) {
 }
 exports.login = login;
 async function logout(_, res) {
-    res.clearCookie('token', { domain: constants_1.cookieDomain });
+    res.clearCookie("token", { domain: constants_1.cookieDomain });
     (0, utils_1.sendResponse)(res, null);
 }
 exports.logout = logout;
