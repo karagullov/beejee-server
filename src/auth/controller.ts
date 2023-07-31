@@ -14,13 +14,7 @@ export async function login(req: Request, res: Response) {
       return sendUnauthenticatedError(res, "Invalid username or password");
     }
     console.log(req.headers);
-    res.cookie("token", data.token, {
-      httpOnly: true,
-      secure: __prod__,
-      sameSite: "lax",
-      domain: __prod__ ? req.headers.host : undefined,
-      maxAge: 1000 * 60 * 60 * 24 * 30,
-    });
+    res.cookie("token", data.token);
     sendResponse(res, data.user);
   } catch {
     sendServerError(res);
