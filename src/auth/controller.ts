@@ -15,9 +15,9 @@ export async function login(req: Request, res: Response) {
     }
     res.cookie("token", data.token, {
       httpOnly: true,
-      secure: __prod__,
+      secure: false,
       sameSite: "lax",
-      domain: req.headers.host,
+      domain: undefined,
       maxAge: 1000 * 60 * 60 * 24 * 30,
     });
     sendResponse(res, data.user);
