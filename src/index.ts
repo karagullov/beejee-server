@@ -8,9 +8,11 @@ const app = express();
 
 app.use(
   cors({
-    origin: __prod__
-      ? "https://beejee-client.vercel.app"
-      : "http://localhost:3000",
+    origin:
+      // __prod__
+      //   ? "https://beejee-client.vercel.app"
+      //   :
+      "http://localhost:3001",
     credentials: true,
   })
 );
