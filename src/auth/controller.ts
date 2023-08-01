@@ -13,6 +13,7 @@ export async function login(req: Request, res: Response) {
     if (!data) {
       return sendUnauthenticatedError(res, "Invalid username or password");
     }
+    //after buy domain
     // res.cookie("token", data.token, {
     //   httpOnly: true,
     //   secure: __prod__,
