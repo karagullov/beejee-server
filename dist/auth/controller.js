@@ -33,9 +33,7 @@ async function login(req, res) {
         if (!data) {
             return (0, utils_1.sendUnauthenticatedError)(res, "Invalid username or password");
         }
-        console.log(req.headers);
-        res.cookie("token", data.token);
-        (0, utils_1.sendResponse)(res, data.user);
+        (0, utils_1.sendResponse)(res, data);
     }
     catch (_a) {
         (0, utils_1.sendServerError)(res);

@@ -13,15 +13,14 @@ export async function login(req: Request, res: Response) {
     if (!data) {
       return sendUnauthenticatedError(res, "Invalid username or password");
     }
-    console.log(req.headers);
-    res.cookie("token", data.token, {
-      httpOnly: true,
-      secure: __prod__,
-      sameSite: "lax",
-      domain: cookieDomain,
-      maxAge: 1000 * 60 * 60 * 24 * 30,
-    });
-    sendResponse(res, data.user);
+    // res.cookie("token", data.token, {
+    //   httpOnly: true,
+    //   secure: __prod__,
+    //   sameSite: "lax",
+    //   domain: cookieDomain,
+    //   maxAge: 1000 * 60 * 60 * 24 * 30,
+    // });
+    sendResponse(res, data);
   } catch {
     sendServerError(res);
   }
