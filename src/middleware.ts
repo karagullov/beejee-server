@@ -7,6 +7,7 @@ export async function authMiddleware(
   res: Response,
   next: NextFunction
 ) {
+  // after buy domain req.query.token -> req.cookies.token
   const token = req.query.token;
   if (!token) return sendUnauthenticatedError(res);
 
